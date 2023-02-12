@@ -129,7 +129,7 @@ app.get("/players/:playerId/playerScores", async (request, response) => {
         player_details INNER JOIN player_match_score ON player_details.player_id = player_match_score.player_id
      WHERE
         player_details.player_id = ${playerId};`;
-  const playerDetails = await db.all(getStatsOfPlayerQuery);
+  const playerDetails = await db.get(getStatsOfPlayerQuery);
   response.send(playerDetails);
 });
 
